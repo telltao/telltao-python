@@ -1,3 +1,9 @@
+"""
+本章节介绍的是 python的基本语法 语言元素
+ https://github.com/telltao/Python-100-Days/blob/master/Day01-15/03.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84.md
+"""
+
+
 def inputqwe():
     """
     使用input()函数获取键盘输入(字符串)
@@ -7,6 +13,7 @@ def inputqwe():
     Version: 0.1
     Author: 骆昊
     """
+
     a = int(input('a = '))
     b = int(input('b = '))
     print('%d + %d = %d' % (a, b, a + b))
@@ -75,6 +82,7 @@ def leap_year():
         print("%d年不是闰年" % (year))
 
 
+
 def circumference():
     """
     输入半径计算圆的周长和面积
@@ -87,6 +95,25 @@ def circumference():
     area = 3.1416 * radius * radius
     print('圆的周长%.2f' % (perimeter))
     print('圆的面积%.2f' % (area))
+
+def if_elif_else():
+    """
+    如果否则等判断
+    :return:
+    """
+    s = int(input('请输入数字: '))
+    if s > 10:
+        print("数字大于10")
+    else:
+        if(s > 9):
+            print("数字大于9")
+        elif(s > 8):
+            print("数字大于8")
+        elif(s > 7):
+            print("数字大于7")
+        else:
+            print("数字小于7")
+
 
 
 if __name__ == '__main__':
@@ -103,9 +130,15 @@ if __name__ == '__main__':
 
     # inputqwe();
     # equals();
+
     # 摄氏度转华氏度
     # fahrenheit_to_celsius();
+
     # 输入圆的半径并计算周长和面积
     # circumference();
+
     # 判断年份是不是闰年
-    leap_year();
+    #leap_year();
+
+    # 根据输入的数字来判断是否大于小于10
+    if_elif_else();
