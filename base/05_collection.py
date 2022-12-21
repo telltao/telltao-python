@@ -1,7 +1,9 @@
 # 集合相关的demo
 
 # 使用列表
+import os
 import sys
+import time
 
 
 def list_test():
@@ -118,6 +120,101 @@ def tuples_final():
     fruits_tuple = tuple(fruits_list)
     print(fruits_tuple)
 
+
+def set_test():
+    set1 = {1, 2, 3, 4, 5}
+    print('set1', set1)
+    print('集合长度为', len(set1))
+    set2 = set(range(1, 10))
+    print('set2', set2)
+    set3 = set((1, 2, 3, 4, 5, 6, 7))
+    print(set2, set3)
+    # 创建集合的推导方法
+    set4 = {num for num in range(1, 100) if num % 3 == 0 or num % 5 == 0}
+    print('set4', set4)
+    # 向集合中添加元素
+    set1.add(6)
+    set1.add(7)
+    set2.update([11, 12])
+    # 从集合中删除存在的元素
+    set2.discard(11)
+    if 4 in set2:
+        set2.remove(4)
+    print(set1, set2)
+    print(' pop set3', set3.pop())
+    print('set3', set3)
+
+    # 集合的交集、并集、差集、对称差运算
+    print(set1 & set2)
+    # print(set1.intersection(set2))
+    print(set1 | set2)
+    # print(set1.union(set2))
+    print(set1 - set2)
+    # print(set1.difference(set2))
+    print(set1 ^ set2)
+    # print(set1.symmetric_difference(set2))
+    # 判断子集和超集
+    print(set2 <= set1)
+    # print(set2.issubset(set1))
+    print(set3 <= set1)
+    # print(set3.issubset(set1))
+    print(set1 >= set2)
+    # print(set1.issuperset(set2))
+    print(set1 >= set3)
+    # print(set1.issuperset(set3))
+
+
+# 创建字典 它们都是 key val 形式的
+def dictionary_test():
+    # 创建字典
+    scores = {'张三': 1, '李四': 2, '王老五': 3}
+    print(scores)
+    # 创建字典的构造器
+    items1 = dict(one=1, two=2, three=3, four=4)
+    # 通过zip函数将两个序列压缩为字典
+    item2 = dict(zip(['a', 'b', 'c'], '123'))
+    # 创建推导式的字典
+    item3 = {num: num ** 2 for num in range(1, 10)}
+    print(items1, item2, item3)
+    # 通过key获取字典
+    print(scores['张三'])
+    # 遍历字典
+    for key in scores:
+        print(f'{key}:{scores[key]}')
+    # 更新字典中的元素
+    scores['张三'] = 3
+    scores.update(刘八=11, 陈九=12)
+    print(scores)
+
+    if '刘八' in scores:
+        print(scores['刘八'])
+    print(scores.get('刘八'))
+    # get可以获取值,也可以设置默认值 但不会修改源字典值
+    print(scores.get('刘八', 66))
+    print(scores)
+    # 删除字典元素 返回删除的键
+    print(scores.popitem())
+    print(scores.popitem())
+    print(scores)
+    # 删除指定元素元素
+    print(scores.pop('张三',666))
+    print(scores)
+    scores.clear()
+    print(scores)
+
+# 模拟跑马灯效果
+def text_test():
+
+    content = '你是干什么滴......';
+    while True:
+        # 如果这里执行报错(TERM environment variable not set.) 请看 https://blog.csdn.net/telltao/article/details/128393895
+        os.system('clear')
+        print(content)
+        # 休眠 200 毫秒
+        time.sleep(0.2)
+        content = content[1:] + content[0]
+
+
 if __name__ == '__main__':
     # python中的列表
     # list_test()
@@ -128,4 +225,12 @@ if __name__ == '__main__':
     # list_generate()
 
     # 元组
-    tuples_final()
+    # tuples_final()
+
+    # 集合
+    # set_test()
+
+    # 字典
+    #dictionary_test()
+    # 模拟跑马灯效果
+    text_test()
