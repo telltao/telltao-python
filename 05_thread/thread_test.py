@@ -8,11 +8,6 @@ from threading import Thread
 from time import sleep, time
 from multiprocessing import Process
 
-
-# 单线程下载某本书籍,随着该方法的调用次数,耗时较长
-from typing import Optional, Callable, Any, Iterable, Mapping
-
-
 def download_task(file_name):
     print('开始下载', file_name)
     down_time = randint(5, 10)
@@ -55,6 +50,7 @@ def multi_thread_download_run():
     p3.join()
     print('Process线程 全部下载完毕,耗时%.2f秒' % (time() - start))
 
+
 ################################################
 
 # 使用 threading线程下载
@@ -69,10 +65,9 @@ def multi_threading_download_run():
     end = time()
     print('threading线程 下载耗时%.3f秒' % (end - start))
 
+
 ################################################
 class DownloadTask(Thread):
-
-
 
     def __init__(self, file_name):
         super().__init__()
@@ -82,7 +77,8 @@ class DownloadTask(Thread):
         print('开始下载%s..' % self._file_name)
         time_download = randint(5, 10)
         sleep(time_download)
-        print('%s下载完成! 耗费了%d秒' % (self._file_name,time_download))
+        print('%s下载完成! 耗费了%d秒' % (self._file_name, time_download))
+
 
 # 创建自定义线程来模拟下载
 def custom_threading_download_run():
@@ -103,6 +99,6 @@ if __name__ == '__main__':
     # 多线程下载
     # multi_thread_download_run()
     # 多线程下载 2
-    #multi_threading_download_run()
+    # multi_threading_download_run()
     # 创建自定义线程来模拟下载
     custom_threading_download_run()
